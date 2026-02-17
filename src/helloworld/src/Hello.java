@@ -1,4 +1,5 @@
 public class Hello {
+    // == != < << <= > >> >= && ||
     public static void main(String[] args) {
         boolean isAlien = true;
         if (isAlien == false)
