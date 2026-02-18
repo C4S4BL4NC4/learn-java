@@ -13,3 +13,12 @@ public class main {
         }
     }
 }
+
+/*
+* if () {
+* }
+* else if() {
+* }
+* else {
+* }
+*/
