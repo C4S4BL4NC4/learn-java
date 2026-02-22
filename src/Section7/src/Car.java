@@ -6,6 +6,7 @@ public class Car {
     private String doors = "2";
     private boolean convertible = true;
 
+    // Getters
     public String getModel() {
         return model;
     }
@@ -26,7 +27,30 @@ public class Car {
         return make;
     }
 
+    // Setters
+    public void setMake(String make) {
+        if (make == null) make = "Unknown";
+        this.make = make;
+    }
 
+    public void setModel(String model) {
+        if (model == null) model = "Unknown";
+        this.model = model;
+    }
+
+    public void setColor(String color) {
+        if (color == null) color = "Unknown";
+        this.color = color;
+    }
+
+    public void setDoors(String doors) {
+        if (doors == null) doors = "Unknown";
+        this.doors = doors;
+    }
+
+    public void setConvertible(Boolean convertible) {
+        this.convertible = convertible;
+    }
 
     public void describeCar() {
         System.out.println(
