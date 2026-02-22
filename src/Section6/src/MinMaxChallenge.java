@@ -20,6 +20,9 @@ public class MinMaxChallenge {
             while (true) {
                 System.out.printf("Enter a value: ");
                 current = scanner.nextInt();
+                if (current == 0) {
+                    break;
+                }
                 if (current >= min && current > max) {
                     max = current;
                     System.out.printf("Min: %d || Max: %d\n", min, max);
@@ -28,8 +31,6 @@ public class MinMaxChallenge {
                     min = current;
                     System.out.printf("Min: %d || Max: %d\n", min, max);
                     continue;
-                } else if (current == 0) {
-                    break;
                 }
                 System.out.printf("Min: %d || Max: %d\n", min, max);
             }
