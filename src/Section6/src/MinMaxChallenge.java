@@ -10,5 +10,7 @@ public class MinMaxChallenge {
         } else {
             System.out.println("Continue");
         }
+
+        
     }
 }

@@ -1,0 +1,10 @@
+{
+    "name": "learn-java",
+    "version": "1.0.0",
+    "description": "Java learning project with Prettier formatting",
+    "private": true,
+    "devDependencies": {
+        "prettier": "^3.2.5",
+        "prettier-plugin-java": "^2.6.0"
+    }
+}
