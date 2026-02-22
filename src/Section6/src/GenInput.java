@@ -1,9 +1,11 @@
 import java.util.Scanner;
 
 public class GenInput {
+
     public static void main(String[] arg) {
         getInputFromConsole();
     }
+
     // No default parameters in JAVA
     public static String getInputFromConsole() {
         String name = System.console().readLine("Hi, What's your Name? ");
@@ -16,10 +18,9 @@ public class GenInput {
         return "";
     }
 
-//    try {
-//
-//    } catch (Exception e ) {
-//
-//    }
-
+    //    try {
+    //
+    //    } catch (Exception e ) {
+    //
+    //    }
 }
