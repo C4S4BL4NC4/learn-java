@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         for (int i = 1; i <= 5; i++) {
-            Student s = new Student(
+            LPAStudent s = new LPAStudent(
                 "S93200" + i,
                 switch (i) {
                     case 1 -> "Leon";
@@ -19,5 +19,6 @@ public class Main {
             );
             System.out.println(s);
         }
+
     }
 }
