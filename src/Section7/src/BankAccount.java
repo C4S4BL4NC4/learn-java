@@ -6,6 +6,26 @@ public class BankAccount {
     private String email;
     private String phone;
 
+    // Constructor: Initializing the object created
+    // Constructor overloading
+    public BankAccount() {
+        this("XNUMBER", 1.00, "XNAME", "XEMAIL", "XPHONE");
+        System.out.println("Empty Constructor Called...");
+    }
+    public BankAccount(String number, double balance, String name, String email, String phone) {
+        this.email = email;
+        this.phone = phone;
+        this.name = name;
+        this.balance = balance;
+        this.number = number;
+    }
+
+    public BankAccount(String name, String email, String phone) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public void depositFunds(double depositAmount) {
         this.balance += depositAmount;
         System.out.println("Deposit of $" + depositAmount);
@@ -24,39 +44,39 @@ public class BankAccount {
         return number;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
+//    public void setNumber(String number) {
+//        this.number = number;
+//    }
 
     public double getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
+//    public void setBalance(double balance) {
+//        this.balance = balance;
+//    }
+//
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+//
     public String getPhone() {
         return phone;
     }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+//
+//    public void setPhone(String phone) {
+//        this.phone = phone;
+//    }
 }
