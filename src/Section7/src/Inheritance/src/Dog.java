@@ -32,13 +32,13 @@ public class Dog extends Animal {
         System.out.println("Woof Woof!");
     }
 
-    //     public void run() {
-    //         System.out.printf("%s is running.\n", this.type);
-    //     }
-
-    //     public void walk() {
-    //         System.out.printf("%s is walking.\n", this.type);
-    //     }
-
-    //     System.out.printf("%s is wagging its tail.\n", this.type);
+    //         public void run() {
+    //             System.out.printf("%s is running.\n", this.type);
+    //         }
+    //
+    //         public void walk() {
+    //             System.out.printf("%s is walking.\n", this.type);
+    //         }
+    //
+    //         System.out.printf("%s is wagging its tail.\n", this.type);
 }

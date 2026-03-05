@@ -33,6 +33,6 @@ public class Animal {
     }
 
     public void makeNoise() {
-        System.out.printf("%s makes some noise.", this.type);
+        System.out.printf("%s makes some noise.\n", this.type);
     }
 }
