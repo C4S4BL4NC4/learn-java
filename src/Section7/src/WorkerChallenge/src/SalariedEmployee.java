@@ -1,7 +1,23 @@
 public class SalariedEmployee extends Employee {
 
-    protected double annualSalary;
-    protected boolean isRetired;
+    private double annualSalary;
+    private boolean isRetired;
 
-    public void retire() {}
+    public SalariedEmployee(String name, String birthDate, String hireDate, double annualSalary) {
+        super(name, birthDate, hireDate);
+        this.annualSalary = annualSalary;
+    }
+
+    @Override
+    public double collectPay() {
+        double paycheck = annualSalary / 26;
+        double adjustedPay = (isRetired) ? 0.9 * paycheck : paycheck;
+        return (int) adjustedPay;
+    }
+
+    public void retire() {
+        String today = "30/03/2026";
+        terminate(today);
+        isRetired = true;
+    }
 }
