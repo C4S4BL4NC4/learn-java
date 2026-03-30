@@ -1,4 +1,6 @@
-package PACKAGE_NAME;
+public class HourlyEmployee extends Employee {
 
-public class HourlyEmployee {
+    protected double hourlyPayRate;
+
+    public void getDoublePay() {}
 }

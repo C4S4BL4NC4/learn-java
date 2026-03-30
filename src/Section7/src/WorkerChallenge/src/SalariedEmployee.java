@@ -1,4 +1,7 @@
-package PACKAGE_NAME;
+public class SalariedEmployee extends Employee {
 
-public class SalariedEmployee {
+    protected double annualSalary;
+    protected boolean isRetired;
+
+    public void retire() {}
 }

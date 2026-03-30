@@ -1,4 +1,5 @@
-package PACKAGE_NAME;
+public class Employee extends Worker {
 
-public class Employee {
+    protected long employeeId;
+    protected String hireDate;
 }
