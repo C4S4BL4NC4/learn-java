@@ -1,25 +1,16 @@
-import java.util.Arrays;
-import java.util.Random;
-
 public class Main {
 
     public static void main(String[] args) {
-        int[] firstArray = getRandomArray(10);
-        System.out.println(Arrays.toString(firstArray));
-        Arrays.sort(firstArray);
-        System.out.println(Arrays.toString(firstArray));
+        System.out.println("Hello World Again");
 
-        int[] mArray = Arrays.copyOf(firstArray, 10);
-        System.out.println(Arrays.toString(mArray));
+        String[] splitStrings = "Hello World Again".split(" ");
+        printText(splitStrings);
+        printText("ALEXI", "WORLD", "FRANK");
     }
 
-    private static int[] getRandomArray(int len) {
-        Random random = new Random();
-        int[] intArray = new int[len];
-
-        for (int i = 0; i < len; i++) {
-            intArray[i] = random.nextInt(100);
+    private static void printText(String... textList) {
+        for (String t : textList) {
+            System.out.println(t);
         }
-        return intArray;
     }
 }
