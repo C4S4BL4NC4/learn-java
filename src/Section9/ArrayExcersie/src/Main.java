@@ -10,6 +10,9 @@ public class Main {
 
         int returnedMin = findMin(returnedArray);
         System.out.println("Min = " + returnedMin);
+
+        int[] reversedArr = reversedArray(returnedArray);
+        System.out.println("Reversed Array = " + Arrays.toString(reversedArr));
     }
 
     private static int[] readIntegers() {
@@ -36,5 +39,19 @@ public class Main {
             }
         }
         return min;
+    }
+
+    private static int[] reversedArray(int[] intArray) {
+        int i = intArray.length - 1;
+        int k = 0;
+        int[] reversedArray = new int[intArray.length];
+
+        while (i >= 0) {
+            reversedArray[k] = intArray[i];
+            k++;
+            i--;
+        }
+
+        return reversedArray;
     }
 }
