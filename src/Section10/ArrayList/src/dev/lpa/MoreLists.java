@@ -1,6 +1,8 @@
 package dev.lpa;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class MoreLists {
@@ -20,5 +22,19 @@ public class MoreLists {
         );
 
         System.out.println(nextList);
+        System.out.println(groceries.get(2));
+        System.out.println(groceries.contains("lemons"));
+        System.out.println(groceries.indexOf("lemons"));
+        //.remove()
+        //.removeAll()
+        //.isEmpty()
+        //.clear()
+        //.addAll()
+        System.out.println(groceries);
+        groceries.sort(Comparator.naturalOrder());
+        System.out.println(groceries);
+        //.reverseOrder()
+        var groceryArray = groceries.toArray(new String[groceries.size()]);
+        System.out.println(Arrays.toString(groceryArray));
     }
 }
