@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class Main {
 
@@ -50,5 +51,24 @@ public class Main {
         System.out.println(placesToVisit.peekFirst());
         System.out.println(placesToVisit.peekLast());
         System.out.println(placesToVisit);
+
+        // List Iteration
+        ListIterator<String> iterator = placesToVisit.listIterator(1);
+        while (iterator.hasNext()) {
+            var city = iterator.next();
+        }
+
+        testIterator(placesToVisit);
+    }
+
+    private static void testIterator(LinkedList<String> list) {
+        var iterator = list.iterator();
+        while (iterator.hasNext()) {
+            System.out.println("next iterator -> " + iterator.next());
+            if (iterator.next().equals("Izmir")) {
+                iterator.remove();
+            }
+        }
+        System.out.println(list);
     }
 }
