@@ -62,11 +62,15 @@ public class Main {
     }
 
     private static void testIterator(LinkedList<String> list) {
-        var iterator = list.iterator();
+        var iterator = list.listIterator();
         while (iterator.hasNext()) {
             System.out.println("next iterator -> " + iterator.next());
             if (iterator.next().equals("Izmir")) {
                 iterator.remove();
+                iterator.add("Izmit");
+                iterator.add("Kocali");
+                iterator.add("Bursa");
+
             }
         }
         System.out.println(list);
