@@ -1,9 +1,9 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Album {
 
     //Album
-    //
     //    -  It has three fields, two Strings called name and artist, and an ArrayList that holds objects of type Song called songs.
     private String name, artist;
     private ArrayList<Song> songs;
@@ -33,7 +33,7 @@ public class Album {
 
     //        -  addToPlayList(), has two parameters of type int (track number of song in album) and LinkedList (the playlist) that holds objects of type Song, and returns a boolean.
     //        Returns true if it exists and it was added successfully using the track number, or false otherwise.
-    public boolean addToPlayList(int trackNumber, ArrayList<Song> playlist) {
+    public boolean addToPlayList(int trackNumber, LinkedList<Song> playlist) {
         if (this.songs.indexOf(trackNumber) == -1) return false;
         playlist.add(this.songs.get(trackNumber));
         return true;
@@ -41,7 +41,7 @@ public class Album {
 
     //        -  addToPlayList(), has two parameters of type String (title of song) and LinkedList (the playlist) that holds objects of type Song, and returns a boolean.
     //        Returns true if it exists and it was added successfully using the name of the song, or false otherwise.
-    public boolean addToPlayList(String title, ArrayList<Song> playlist) {
+    public boolean addToPlayList(String title, LinkedList<Song> playlist) {
         for (Song song : this.songs) {
             if (song.getTitle() == title) {
                 playlist.add(song);
