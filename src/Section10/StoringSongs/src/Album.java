@@ -3,50 +3,44 @@ import java.util.LinkedList;
 
 public class Album {
 
-    //Album
-    //    -  It has three fields, two Strings called name and artist, and an ArrayList that holds objects of type Song called songs.
     private String name, artist;
     private ArrayList<Song> songs;
 
-    //    -  A constructor that accepts two Strings (name of the album and artist). It initialises the fields and instantiates songs.
     public Album(String name, String artist) {
         this.name = name;
         this.artist = artist;
         this.songs = new ArrayList<>();
     }
 
-    //    -  And three methods, they are:
-    //        -  addSong(), has two parameters of type String (title of song), double (duration of song) and returns a boolean. Returns true if the song was added successfully or false otherwise.
     public boolean addSong(String title, double duration) {
-        if (title.isBlank() || duration == 0) return false;
+        if (title == null || title.isBlank() || duration <= 0) return false;
+        if (findSong(title) != null) return false; // prevent duplicates
         this.songs.add(new Song(title, duration));
         return true;
     }
 
-    //        -  findSong(), has one parameter of type String (title of song) and returns a Song. Returns the Song if it exists, null if it doesn't exists.
-    public Song findSong(String title) {
+    private Song findSong(String title) {
         for (Song song : this.songs) {
-            if (song.getTitle() == title) return song;
+            if (song.getTitle().equals(title)) return song; // use equals
         }
         return null;
     }
 
-    //        -  addToPlayList(), has two parameters of type int (track number of song in album) and LinkedList (the playlist) that holds objects of type Song, and returns a boolean.
-    //        Returns true if it exists and it was added successfully using the track number, or false otherwise.
-    public boolean addToPlayList(int trackNumber, LinkedList<Song> playlist) {
-        if (this.songs.indexOf(trackNumber) == -1) return false;
-        playlist.add(this.songs.get(trackNumber));
-        return true;
+    public boolean addToPlayList(int trackNumber, LinkedList<Song> playList) {
+        int index = trackNumber - 1;
+        if (index >= 0 && index < songs.size()) {
+            // fix bound
+            playList.add(songs.get(index));
+            return true;
+        }
+        return false;
     }
 
-    //        -  addToPlayList(), has two parameters of type String (title of song) and LinkedList (the playlist) that holds objects of type Song, and returns a boolean.
-    //        Returns true if it exists and it was added successfully using the name of the song, or false otherwise.
-    public boolean addToPlayList(String title, LinkedList<Song> playlist) {
-        for (Song song : this.songs) {
-            if (song.getTitle() == title) {
-                playlist.add(song);
-                return true;
-            }
+    public boolean addToPlayList(String title, LinkedList<Song> playList) {
+        Song checkedSong = findSong(title);
+        if (checkedSong != null) {
+            playList.add(checkedSong);
+            return true;
         }
         return false;
     }
