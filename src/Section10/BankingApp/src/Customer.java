@@ -18,4 +18,12 @@ public class Customer {
     public ArrayList<Double> getTransactions() {
         return transactions;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", transactions=" + transactions +
+                '}';
+    }
 }
