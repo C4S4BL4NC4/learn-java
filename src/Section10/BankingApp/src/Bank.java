@@ -1,19 +1,29 @@
 import java.util.ArrayList;
 
 public class Bank {
+
     private String name;
-    private ArrayList<Customer> customers;
+    private ArrayList<Customer> customers = new ArrayList<>(5000);
 
     public Bank(String name) {
         this.name = name;
-        this.customers = new ArrayList<>();
     }
 
-    public boolean addCustomer(String name) {
-        if (name != null && customers.) {
-            customers.add(new Customer(name));
-            return true;
+    public Customer getCustomer(String name) {
+        for (var customer : customers) {
+            if (customer.getName().equalsIgnoreCase(name)) {
+                return customer;
+            }
         }
-        return false;
+        System.out.println("Customer not found");
+        return null;
+    }
+
+    public void addNewCustomer(String customerName, double initialDeposit) {
+        if (getCustomer(customerName) == null) {
+            Customer customer = new Customer(customerName, initialDeposit);
+            customers.add(customer);
+            System.out.println("Customer " + customer.getName() + " was added successfully");
+        }
     }
 }
