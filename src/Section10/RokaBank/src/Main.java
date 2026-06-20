@@ -1,4 +1,5 @@
 public class Main {
+
     static void main(String[] args) {
         Bank bank = new Bank("National Australia Bank");
 
