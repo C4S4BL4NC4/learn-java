@@ -1,5 +1,8 @@
 enum FlightStages implements Trackable {
-    GROUNDED, LAUNCH, CRUISE, DATA_COLLECTION;
+    GROUNDED,
+    LAUNCH,
+    CRUISE,
+    DATA_COLLECTION;
 
     @Override
     public void track() {
@@ -10,21 +13,14 @@ enum FlightStages implements Trackable {
 }
 
 record DragonFly(String name, String type) implements FlightEnabled {
+    @Override
+    public void tackOff() {}
 
     @Override
-    public void tackOff() {
-
-    }
+    public void land() {}
 
     @Override
-    public void land() {
-
-    }
-
-    @Override
-    public void fly() {
-
-    }
+    public void fly() {}
 }
 
 class Satellite implements OrbitEarth {
@@ -35,19 +31,13 @@ class Satellite implements OrbitEarth {
     }
 
     @Override
-    public void tackOff() {
-
-    }
+    public void tackOff() {}
 
     @Override
-    public void land() {
-
-    }
+    public void land() {}
 
     @Override
-    public void fly() {
-
-    }
+    public void fly() {}
 }
 
 interface OrbitEarth extends FlightEnabled {
@@ -68,5 +58,6 @@ interface Trackable {
 }
 
 public abstract class Animal {
+
     public abstract void move();
 }

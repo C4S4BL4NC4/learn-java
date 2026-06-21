@@ -1,6 +1,7 @@
-public class Truck implements Trackable{
+public class Truck implements Trackable {
+
     @Override
     public void track() {
-        System.out.println( getClass() + "'s being tracked.");
+        System.out.println(getClass() + "'s being tracked.");
     }
 }

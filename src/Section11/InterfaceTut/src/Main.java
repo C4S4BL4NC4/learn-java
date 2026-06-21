@@ -1,4 +1,5 @@
 public class Main {
+
     public static void main(String[] args) {
         Bird bird = new Bird();
         Animal animal = bird;
@@ -8,8 +9,8 @@ public class Main {
 
         bird.move();
         animal.move();
-//        flier.move();
-//        tracked.move();
+        //        flier.move();
+        //        tracked.move();
         inFlight(flier);
         inFlight(jet);
         Truck truck = new Truck();
