@@ -1,29 +1,17 @@
 import java.util.ArrayList;
 
-public class Store extends ProductsForSale {
-    private ArrayList<String> itemList = new ArrayList<>();
-    private ArrayList<String> orderList = new ArrayList<>();
+public record OrderItem {
+    public int quantity;
+    public ProductsForSale product;
 
-    public Store(String type, String description, double price) {
-        super(type, description, price);
+    public OrderItem(int quantity, ProductsForSale product) {
+        this.quantity = quantity;
+        this.product = product;
     }
+}
 
-    @Override
-    public void showDescription() {
-        
-    }
-
-    public void placeOrder(String item) {
-        orderList.add(item);
-    }
-
-    public void printOrder() {
-        for (String item : orderList) {
-            System.out.println(item);
-        }
-    }
-
+public class Store {
     static void main(String[] args) {
-        System.out.println("Hello World");
+
     }
 }
