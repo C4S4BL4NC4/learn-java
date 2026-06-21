@@ -15,9 +15,13 @@ public class Main {
         animals.add(new Fish("Cleaner", "small", 10));
         animals.add(new Dog("wolf", "big", 100));
         animals.add(jon);
+        animals.add(new Horse("arabian", "large", 1000));
 
         for (Animal animal : animals) {
             doAnimalStuff(animal);
+            if (animal instanceof Mammal currentMammal) {
+                currentMammal.shedHair();
+            }
         }
     }
 
