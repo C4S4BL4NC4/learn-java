@@ -25,6 +25,12 @@ public class MyLinkedList implements NodeList {
     public void traverse(ListItem root) {
         if (root == null) {
             System.out.println("The list is empty");
+        } else {
+            while (root.next() != null) {
+                System.out.println(root.getValue());
+                root = root.next();
+            }
+            System.out.println(root.getValue());
         }
     }
 }

@@ -1,6 +1,6 @@
 public abstract class ListItem {
 
-    protected ListItem leftLink, rightLink;
+    protected ListItem leftLink, rightLink = null;
     protected Object value;
 
     public ListItem(Object value) {
