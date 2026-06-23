@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -19,7 +20,7 @@ public class Main {
         Truck truck = new Truck();
         truck.track();
 
-        ArrayList<FlightEnabled> fliers = new ArrayList<>();
+        LinkedList<FlightEnabled> fliers = new LinkedList<>();
         fliers.add(bird);
         List<FlightEnabled> betterFliers = new ArrayList<>();
         betterFliers.add(bird);
@@ -29,9 +30,9 @@ public class Main {
         flyFliers(fliers);
         landFliers(fliers);
 
-//        triggerFliers(betterFliers);
-//        flyFliers(betterFliers);
-//        landFliers(betterFliers);
+        triggerFliers(betterFliers);
+        flyFliers(betterFliers);
+        landFliers(betterFliers);
     }
 
     public static void inFlight(FlightEnabled flier) {
@@ -43,19 +44,19 @@ public class Main {
         flier.land();
     }
 
-    public static void triggerFliers(ArrayList<FlightEnabled> fliers) {
+    public static void triggerFliers(List<FlightEnabled> fliers) {
         for (var flier : fliers) {
             flier.tackOff();
         }
     }
 
-    public static void flyFliers(ArrayList<FlightEnabled> fliers) {
+    public static void flyFliers(List<FlightEnabled> fliers) {
         for (var flier : fliers) {
             flier.fly();
         }
     }
 
-    public static void landFliers(ArrayList<FlightEnabled> fliers) {
+    public static void landFliers(List<FlightEnabled> fliers) {
         for (var flier : fliers) {
             flier.land();
         }

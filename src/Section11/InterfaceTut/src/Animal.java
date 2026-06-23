@@ -38,6 +38,11 @@ class Satellite implements OrbitEarth {
 
     @Override
     public void fly() {}
+
+    static void log(String description) {
+        var today = new java.util.Date();
+        System.out.println(today + ": " + description);
+    }
 }
 
 interface OrbitEarth extends FlightEnabled {
@@ -51,6 +56,11 @@ interface FlightEnabled {
     public abstract void tackOff();
     abstract void land();
     void fly();
+
+    default FlightStages transitions(FlightStages stage) {
+        System.out.println("Transitions is not impelmented in " + this.getClass().getName());
+        return null;
+    };
 }
 
 interface Trackable {
