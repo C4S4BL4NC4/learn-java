@@ -15,7 +15,7 @@ public abstract class ListItem {
 
     abstract ListItem setPrevious(ListItem item);
 
-    abstract int compareTo();
+    abstract int compareTo(ListItem item);
 
     public Object getValue() {
         return value;
