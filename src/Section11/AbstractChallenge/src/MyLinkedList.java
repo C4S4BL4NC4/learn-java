@@ -3,13 +3,11 @@ public class MyLinkedList implements NodeList {
     ListItem root;
 
     public MyLinkedList(ListItem root) {
-
         this.root = root;
     }
 
     @Override
     public ListItem getRoot() {
-
         return root;
     }
 
@@ -30,7 +28,6 @@ public class MyLinkedList implements NodeList {
 
     @Override
     public boolean removeItem(ListItem item) {
-
         return false;
     }
 

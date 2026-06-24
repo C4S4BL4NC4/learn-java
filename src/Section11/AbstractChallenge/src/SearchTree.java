@@ -1,4 +1,4 @@
-public class SearchTree implements NodeList{
+public class SearchTree implements NodeList {
 
     @Override
     public ListItem getRoot() {
@@ -16,7 +16,5 @@ public class SearchTree implements NodeList{
     }
 
     @Override
-    public void traverse(ListItem root) {
-
-    }
+    public void traverse(ListItem root) {}
 }
