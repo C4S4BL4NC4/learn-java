@@ -1,14 +1,19 @@
-public class Point implements Mappable {
+import java.util.Arrays;
 
-    protected String name;
-    protected double lat, lng;
+abstract class Point implements Mappable {
 
-    public Point(String name, double lat, double lng) {
-        this.name = name;
-        this.lat = lat;
-        this.lng = lng;
+    protected double[] location = new double[2];
+
+    public Point(String location) {
+        this.location = Mappable.stringToLatLon(location);
     }
 
     @Override
-    public void render() {}
+    public void render() {
+        System.out.println("Render " + this + " as point (" + location() + ")");
+    }
+
+    private String location() {
+        return Arrays.toString(location);
+    }
 }

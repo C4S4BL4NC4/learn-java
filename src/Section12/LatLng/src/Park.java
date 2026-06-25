@@ -1,8 +1,8 @@
 public class Park extends Point {
 
-    private String type = "National Park";
+    String name;
 
-    public Park(String name, double lat, double lng) {
-        super(name, lat, lng);
+    public Park(String name, double[] location) {
+        super(name, location);
     }
 }

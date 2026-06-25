@@ -1,14 +1,13 @@
-public class Line implements Mappable {
+abstract class Line implements Mappable {
 
     protected String name;
-    protected double lat, lng;
+    protected double[][] locations;
 
-    public Line(String name, double lat, double lng) {
+    public Line(String name, double[][] locations) {
         this.name = name;
-        this.lat = lat;
-        this.lng = lng;
+        this.locations = locations;
     }
 
     @Override
-    public void render() {}
+    public String render() {}
 }
