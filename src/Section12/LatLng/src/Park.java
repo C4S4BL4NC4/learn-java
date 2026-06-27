@@ -1,8 +1,14 @@
 public class Park extends Point {
 
-    String name;
+    private String name;
 
-    public Park(String name, double[] location) {
-        super(name, location);
+    public Park(String name, String location) {
+        super(location);
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name + " National Park";
     }
 }
