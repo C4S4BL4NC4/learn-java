@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 abstract class Line implements Mappable {
 
     protected double[][] locations;
@@ -10,6 +12,12 @@ abstract class Line implements Mappable {
         }
     }
 
+    private String locations() {
+        return Arrays.deepToString(locations);
+    }
+
     @Override
-    public String render() {}
+    public void render() {
+        System.out.println("Render " + this + " as a LINE (" + locations() + ")");
+    }
 }
