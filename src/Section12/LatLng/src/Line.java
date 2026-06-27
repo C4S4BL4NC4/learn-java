@@ -1,11 +1,13 @@
 abstract class Line implements Mappable {
 
-    protected String name;
     protected double[][] locations;
 
-    public Line(String name, double[][] locations) {
-        this.name = name;
-        this.locations = locations;
+    public Line(String... locations) {
+        this.locations = new double[locations.length][];
+        int i = 0;
+        for (var j : locations) {
+            this.locations[i++] = Mappable.stringToLatLon(j);
+        }
     }
 
     @Override
