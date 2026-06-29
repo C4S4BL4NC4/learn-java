@@ -1,1 +1,1 @@
-public class Player extends Character {}
+public class Player {}
