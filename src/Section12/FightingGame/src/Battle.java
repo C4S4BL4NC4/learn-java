@@ -1,3 +1,1 @@
-public class Battle <T extends Character> {
-
-}
+public class Battle<T extends Character> {}

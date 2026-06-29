@@ -1,3 +1,7 @@
-public enum Stances {
-    STAND, CROUCH, AIRBORNE, KNOCKED, PRONE
+public enum STANCES {
+    STAND,
+    CROUCH,
+    AIRBORNE,
+    KNOCKED,
+    PRONE,
 }

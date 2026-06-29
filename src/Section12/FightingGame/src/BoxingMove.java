@@ -1,4 +1,16 @@
-package PACKAGE_NAME;
+public enum BoxingMove implements Move {
+    JAB,
+    CROSS,
+    HOOK;
 
-public enum BoxingMove {
+    //    public String name() {
+    //        return toString();
+    //    }
+    public int damage() {
+        return switch (this) {
+            case JAB -> 5;
+            case CROSS -> 8;
+            case HOOK -> 10;
+        };
+    }
 }

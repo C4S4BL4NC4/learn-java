@@ -1,2 +1,1 @@
-public class Player implements Character {
-}
+public class Player extends Character {}

@@ -1,2 +1,1 @@
-public class Com implements Character {
-}
+public class Com extends Character {}
