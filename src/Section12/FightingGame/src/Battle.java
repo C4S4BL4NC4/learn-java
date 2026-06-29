@@ -1,4 +1,3 @@
-package PACKAGE_NAME;
+public class Battle <T extends Character> {
 
-public class Battle {
 }
