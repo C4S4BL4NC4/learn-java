@@ -2,10 +2,7 @@ public enum BoxingMove implements Move {
     JAB,
     CROSS,
     HOOK;
-
-    //    public String name() {
-    //        return toString();
-    //    }
+    
     public int damage() {
         return switch (this) {
             case JAB -> 5;
