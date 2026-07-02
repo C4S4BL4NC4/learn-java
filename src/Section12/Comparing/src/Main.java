@@ -17,5 +17,13 @@ public class Main {
             System.out.printf("%s %s %s compareTo= %d%n", mysteryFruit, fruit.equals(mysteryFruit) ? "==" : "!=", fruit, val);
         }
 
+        Student alice = new Student("Alice");
+        System.out.println(alice.toString());
+
+        Student[] attendance = {new Student("Rosie"), new Student("Vanessa"), new Student("Roy"), alice};
+        for (Student s : attendance) {
+
+        }
     }
 }
+
