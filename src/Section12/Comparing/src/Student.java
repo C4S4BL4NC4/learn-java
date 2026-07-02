@@ -1,4 +1,4 @@
-public class Student implements Comparable{
+public class Student implements Comparable <Student>{
     String name;
 
     @Override
@@ -11,7 +11,7 @@ public class Student implements Comparable{
     }
 
     @Override
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(Student o) {
+        return name.compareTo(o.name);
     }
 }

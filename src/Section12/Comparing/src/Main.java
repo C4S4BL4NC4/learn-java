@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Comparing");
@@ -21,9 +23,12 @@ public class Main {
         System.out.println(alice.toString());
 
         Student[] attendance = {new Student("Rosie"), new Student("Vanessa"), new Student("Roy"), alice};
-        for (Student s : attendance) {
+        System.out.println(Arrays.toString(attendance));
 
-        }
+        Arrays.sort(attendance);
+        System.out.println(Arrays.toString(attendance));
+
+
     }
 }
 
