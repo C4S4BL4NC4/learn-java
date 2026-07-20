@@ -1,5 +1,3 @@
 package dev.pregen;
 
-public interface Player {
-
-}
+public interface Player {}

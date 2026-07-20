@@ -5,13 +5,19 @@ import dev.pregen.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Team<T extends Player> {
+public class Team<T extends Player, S> {
     private String teamName;
     private List<T> players = new ArrayList<>();
     private int losses, ties, wins = 0;
+    private S affiliation;
 
     public Team(String teamName) {
         this.teamName = teamName;
+    }
+
+    public Team(String teamName, S affiliation) {
+        this.teamName = teamName;
+        this.affiliation = affiliation;
     }
 
     public String getTeamName() {
@@ -25,7 +31,8 @@ public class Team<T extends Player> {
     }
 
     public void listTeamMembers() {
-        System.out.println(teamName + " Roster");
+        System.out.print(teamName + " Roster");
+        System.out.println(affiliation == null ? "" : " AFFILIATION: " + affiliation);
         System.out.println(players);
     }
 

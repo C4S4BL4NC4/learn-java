@@ -1,3 +1,4 @@
+import dev.generics.Affiliation;
 import dev.generics.Team;
 import dev.lpa.BaseballPlayer;
 import dev.lpa.BaseballTeam;
@@ -36,8 +37,11 @@ public class Main {
         gladiators.listTeamMembers();
         hurricanes.listTeamMembers();
 
-        Team<FootballPlayer> rangers = new Team<>("Rangers");
-        Team<BaseballPlayer> runners = new Team<>("Runners");
+        var toronto = new Affiliation("Toronto", "city", "CA");
+        var amsterdam = new Affiliation("Amsterdam", "city", "NL");
+
+        Team<FootballPlayer, Affiliation> rangers = new Team<>("Rangers", toronto);
+        Team<BaseballPlayer, Affiliation> runners = new Team<>("Runners", amsterdam);
 
         runners.addTeamMember(new BaseballPlayer("Speed Demon", "MID"));
         rangers.addTeamMember(new FootballPlayer("Playmaker", "CM"));
