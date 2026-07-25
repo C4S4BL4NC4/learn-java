@@ -24,6 +24,7 @@ public class LambdaExpr {
                 new Person("Alisson", "Becker")
         ));
 //        System.out.println(people);
+
         // Anonymous Class
         var comparatorLastName = new Comparator<Person>() {
             @Override
