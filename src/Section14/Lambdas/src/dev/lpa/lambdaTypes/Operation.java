@@ -1,6 +1,6 @@
 package dev.lpa.lambdaTypes;
 
 @FunctionalInterface
-public interface Operation <T> {
+public interface Operation<T> {
     T operate(T value1, T value2);
 }

@@ -6,8 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class LambdaExpr {
-    record Person (String name, String lastName){
 
+    record Person(String name, String lastName) {
         @Override
         public String toString() {
             return name + " " + lastName;
@@ -15,15 +15,17 @@ public class LambdaExpr {
     }
 
     public static void main(String[] args) {
-        List<Person> people = new ArrayList<>(Arrays.asList(
+        List<Person> people = new ArrayList<>(
+            Arrays.asList(
                 new LambdaExpr.Person("Jonas", "Schmedtmann"),
                 new Person("Rocky", "Rock"),
                 new Person("Peter", "Parker"),
                 new Person("Bruce", "Wayne"),
                 new Person("Able", "Adams"),
                 new Person("Alisson", "Becker")
-        ));
-//        System.out.println(people);
+            )
+        );
+        //        System.out.println(people);
 
         // Anonymous Class
         var comparatorLastName = new Comparator<Person>() {
@@ -33,12 +35,12 @@ public class LambdaExpr {
             }
         };
         people.sort(comparatorLastName);
-//        System.out.println(people);
+        //        System.out.println(people);
 
         // Lambda Expression
         people.sort((o1, o2) -> o2.lastName.compareTo(o1.lastName));
-//        System.out.println(people);
+        //        System.out.println(people);
 
-        people.forEach((p) -> System.out.println(p));
+        people.forEach(p -> System.out.println(p));
     }
 }
