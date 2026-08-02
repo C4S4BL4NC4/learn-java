@@ -31,9 +31,8 @@ public class Main {
     public static ArrayList<String> getLastName(ArrayList<String> arr) {
         ArrayList<String> result = new ArrayList<>();
         arr.forEach(e -> {
-            String[] splits = e.split("");
-            Arrays.sort(splits, Comparator.reverseOrder());
-            result.add(String.join("", splits));
+            String reversed = new StringBuilder(e.toUpperCase()).reverse().toString();
+            result.add(reversed);
         });
         return result;
     }
