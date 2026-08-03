@@ -12,6 +12,8 @@ public class Main {
         calculator(Integer::sum, 4, 6);
         calculator(Double::sum, 5.6, 1.4);
         calculator((a, b) -> a + b, "foo", "bar");
+        calculator((s1, s2) -> s1.concat(s2), "foo", "bar");
+        calculator(String::concat, "foo", "bar");
     }
 
     private static <T> void calculator(BinaryOperator<T> function, T v1, T v2) {
