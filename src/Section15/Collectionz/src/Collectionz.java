@@ -1,4 +1,5 @@
-package PACKAGE_NAME;
-
 public class Collectionz {
+    public static void main(String[] args) {
+        System.out.println("Collectionz.main");
+    }
 }
