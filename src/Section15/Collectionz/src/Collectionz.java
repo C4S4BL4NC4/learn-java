@@ -18,5 +18,7 @@ public class Collectionz {
         list.removeIf(s -> s.charAt(0) == 'G');
         System.out.println("list = " + list);
         System.out.println("The list contains Garry? " + list.contains("Garry"));
+
+        
     }
 }
