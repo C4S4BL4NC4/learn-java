@@ -15,10 +15,16 @@ public class Main {
         List<String> hellos = Arrays.asList(aText, bText, cText, dText, eText);
 
         hellos.forEach(s -> System.out.println(s + ": " + s.hashCode()));
-
         Set<String> mySet = new HashSet<>(hellos);
+
         System.out.println("mySet = " + mySet);
         System.out.println("mySet.size() = " + mySet.size());
+
+        Set<String> names = new HashSet<>();
+        names.add("Alex");
+        names.add("Rosa");
+        names.add("Alex");
+        System.out.println("names.size()= " + names.size());
 
         for (String value : mySet) {
             System.out.print(value + ": ");
