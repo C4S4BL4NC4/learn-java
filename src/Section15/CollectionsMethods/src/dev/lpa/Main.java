@@ -115,6 +115,79 @@ public class Main {
         Collections.reverse(copied);
         System.out.println("Using reverse: " + copied);
 
-        
+        // Equals explained
+        class Money {
+            int amount;
+            String currencyCode;
+
+            public Money(int amount, String currencyCode) {
+                this.amount = amount;
+                this.currencyCode = currencyCode;
+            }
+
+            @Override
+            public boolean equals(Object o) {
+                if (o == this) {
+                    System.out.println("o == this");
+                    return true;
+                }
+
+                if (!(o instanceof Money)) {
+                    System.out.println("!(o instanceof Money)");
+                    return false;
+                }
+//
+                Money other = (Money) o;
+                boolean currencyCodeEquals = (this.currencyCode == null && other.currencyCode == null)
+                        || (this.currencyCode != null && this.currencyCode.equals(other.currencyCode));
+                System.out.println("this.amount == other.amount && currencyCodeEquals = " + (this.amount == other.amount && currencyCodeEquals));
+                return this.amount == other.amount && currencyCodeEquals;
+            }
+        }
+
+        Money income = new Money(55, "USD");
+        Money expenses = new Money(55, "USD");
+        boolean balanced = income.equals(expenses);
+        System.out.println("balanced = " + balanced);
+
+        // HashCode explained:
+        class Point {
+            int x, y;
+
+            Point(int x, int y) {
+                this.x = x;
+                this.y = y;
+            }
+
+            @Override
+            public boolean equals(Object o) {
+                if (!(o instanceof Point)) return false;
+                Point p = (Point) o;
+                return this.x == p.x && this.y == p.y;
+            }
+
+            // IF YOU OVERRIDE EQUALS MUST OVERRIDE HASHCODE TOO!!!!
+            @Override
+            public int hashCode() {
+                return Objects.hash(x, y);
+            }
+        }
+
+        Point p1 = new Point(3, 4);
+        Point p2 = new Point(3, 4);
+
+        // Before Overriding equals() and hashCode()
+        // We'd get different hashCodes because it doesn't look at x or y at all.
+        // It's tied to "which object is this," roughly like a serial number assigned at creation.
+        // Two objects with identical field values still get different hash codes, because they're two separate objects.
+        System.out.println("p1 hashCode = " + p1.hashCode()); // e.g. 366712642
+        System.out.println("p2 hashCode = " + p2.hashCode());  // e.g. 1829164700 — different!
+        System.out.println(p1.equals(p2));    // false (default equals = reference check, same as ==)
+
+        // After Overriding
+        // NOTE: if equals() is overriden hashCode() must be too!!!!
+        System.out.println("p1 hashCode = " + p1.hashCode()); // e.g. 366712642
+        System.out.println("p2 hashCode = " + p2.hashCode());  // e.g. 366712642 — same!
+        System.out.println(p1.equals(p2)); // true
     }
 }
