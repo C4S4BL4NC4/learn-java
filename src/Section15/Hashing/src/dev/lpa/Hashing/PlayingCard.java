@@ -1,4 +1,4 @@
-package dev.lpa;
+package dev.lpa.Hashing;
 
 public class PlayingCard {
     private String suit;
