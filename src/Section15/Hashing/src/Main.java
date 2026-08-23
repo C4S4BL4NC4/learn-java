@@ -53,5 +53,11 @@ public class Main {
             }
         }
         System.out.println(deck);
+
+        /*
+        * UNION         => .addAll()
+        * INTERSECTION  => .retainAll()
+        * A - B         => A.removeAll(B)
+        * */
     }
 }
