@@ -35,12 +35,12 @@ public class Contact {
         if (phoneNumStr.length() == 10) {
             // (123)456-7890
             return (
-                "(" +
-                phoneNumStr.substring(0, 3) +
-                ")" +
-                phoneNumStr.substring(3, 6) +
-                "-" +
-                phoneNumStr.substring(6)
+                    "(" +
+                            phoneNumStr.substring(0, 3) +
+                            ")" +
+                            phoneNumStr.substring(3, 6) +
+                            "-" +
+                            phoneNumStr.substring(6)
             );
         }
         return null;
@@ -68,7 +68,7 @@ public class Contact {
         return 33 * getName().hashCode();
     }
 
-    Contact mergeContactData(Contact contact) {
+    public Contact mergeContactData(Contact contact) {
         Contact newContact = new Contact(name);
         newContact.emails = new HashSet<>(this.emails);
         newContact.phones = new HashSet<>(this.phones);
@@ -77,4 +77,6 @@ public class Contact {
 
         return newContact;
     }
+
+
 }
