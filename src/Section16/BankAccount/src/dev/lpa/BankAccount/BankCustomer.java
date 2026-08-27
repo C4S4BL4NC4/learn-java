@@ -18,13 +18,21 @@ public class BankCustomer {
         accounts.add(new BankAccount(BankAccount.AccountType.SAVING, savingsAmount));
     }
 
+
     public String getName() {
         return name;
     }
 
+    public int getCustomerId() {
+        return customerId;
+    }
+
     public List<BankAccount> getAccounts() {
         return accounts;
+    }
 
+    public BankAccount getAccount(BankAccount.AccountType type) {
+        return null;
     }
 
     @Override
