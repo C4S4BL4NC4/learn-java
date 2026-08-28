@@ -3,13 +3,14 @@ package dev.lpa.BankAccount;
 
 import dev.lpa.dto.Transaction;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class BankAccount {
 
     private final AccountType accountType;
     private double balance;
-    private Map<Long, Transaction> transactions;
+    private Map<Long, Transaction> transactions = new LinkedHashMap<>();
 
     public BankAccount(AccountType type, double balance) {
         this.accountType = type;
@@ -30,11 +31,12 @@ public class BankAccount {
     }
 
     public Map<Long, Transaction> getTransactions() {
-        return transactions;
+        return Map.copyOf(transactions);
     }
 
-    public boolean commitTransaction(int routingNumber, long transactionId, String customerId, double amount) {
-        return false;
+    void commitTransaction(int routingNumber, long transactionId, String customerId, double amount) {
+        balance += amount;
+        transactions.put(transactionId, new Transaction(routingNumber, (int) transactionId, Integer.parseInt(customerId), amount));
     }
 
     public enum AccountType {CHECKING, SAVING, OTHER}

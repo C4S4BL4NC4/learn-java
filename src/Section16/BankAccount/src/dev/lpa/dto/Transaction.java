@@ -2,7 +2,7 @@ package dev.lpa.dto;
 
 public class Transaction {
     private int routingNumber;
-    private int customerId;
+    private long customerId;
     private long transactionId;
     private double transactionAmount;
 
@@ -21,7 +21,7 @@ public class Transaction {
         this.routingNumber = routingNumber;
     }
 
-    public int getCustomerId() {
+    public long getCustomerId() {
         return customerId;
     }
 
@@ -43,5 +43,10 @@ public class Transaction {
 
     public void setTransactionAmount(double transactionAmount) {
         this.transactionAmount = transactionAmount;
+    }
+
+    @Override
+    public String toString() {
+        return "%015d:%020d:%015d:%012.2f".formatted(routingNumber, customerId, transactionId, transactionAmount);
     }
 }
