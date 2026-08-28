@@ -17,5 +17,6 @@ public class Main {
         System.out.println("child = " + child);
         System.out.println("person = " + person);
         System.out.println("personCopy = " + personCopy);
+        var g = Generation.GEN_X;
     }
 }
