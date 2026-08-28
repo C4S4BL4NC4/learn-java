@@ -1,3 +1,4 @@
+import dev.lpa.BankAccount.Bank;
 import dev.lpa.BankAccount.BankAccount;
 import dev.lpa.BankAccount.BankCustomer;
 
@@ -14,9 +15,13 @@ public class Main {
 //        System.out.println(joe);
 //        var denis = new BankCustomer("Denis", 3000, 5000);
 //        System.out.println(denis);
-        BankCustomer joe = null;
+
+        var bank = new Bank(1234567);
+        bank.addCustomer("Joe", 5000, 1000);
+
+        BankCustomer joe = bank.getCustomer("000000010000000");
+
         List<BankAccount> accounts = joe.getAccounts();
-        accounts.clear();
         System.out.println(joe);
 
     }
