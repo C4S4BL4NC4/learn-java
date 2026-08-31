@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class Game<T extends Player> {
+
     private final String gameName;
     private final List<T> players = new ArrayList<>();
     private Map<Character, GameAction> standardActions = null;
@@ -20,13 +21,14 @@ public abstract class Game<T extends Player> {
 
     public Map<Character, GameAction> getStandardActions() {
         if (standardActions == null) {
-            standardActions = new LinkedHashMap<>(Map.of(
+            standardActions = new LinkedHashMap<>(
+                Map.of(
                     'I',
-                    "Print Player Info",
-                    i -> this.printPlayer(i),
+                    new GameAction('I', "Print Player Info", this::printPlayer),
                     'Q',
-                    "Quit Game",
-                    i -> this::quitGame));
+                    new GameAction('Q', "Quit Game", this::quitGame)
+                )
+            );
         }
         return standardActions;
     }
