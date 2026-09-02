@@ -11,5 +11,7 @@ public class Main {
         var console = new GameConsole<>(new ShooterGame("Shooter: The Game"));
         int playerIndex = console.addPlayer();
         console.playGame(playerIndex);
+
+        
     }
 }
