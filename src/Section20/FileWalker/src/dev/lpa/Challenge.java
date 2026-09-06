@@ -7,11 +7,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class Main {
+public class Challenge {
     public static void main(String[] args) {
         System.out.println("Main.main");
         Path startingPath = Path.of(".");
-        FileVisitor<Path> statsVisitor = new StatsVisitor(1);
+        FileVisitor<Path> statsVisitor = new StatsVisitor(Integer.MAX_VALUE);
         try {
             Files.walkFileTree(startingPath, statsVisitor);
         } catch (IOException e) {
@@ -26,6 +26,8 @@ public class Main {
         private int initialCount;
         private Path initialPath = null;
         private int printLevel;
+        private int dirFolderCount;
+        private int dirFileCount;
 
         public StatsVisitor(int printLevel) {
             this.printLevel = printLevel;
@@ -60,8 +62,6 @@ public class Main {
         @Override
         public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
             Objects.requireNonNull(dir);
-//            if (exc != null)
-//                throw exc;
             if (dir.equals(initialPath)) {
                 return FileVisitResult.TERMINATE;
             }
@@ -72,6 +72,7 @@ public class Main {
                     if (level < printLevel) {
                         System.out.printf("%s[%s] - %,d bytes\n", "\t".repeat(level), key.getFileName(), val);
                     }
+
                 });
             } else {
                 long folderSize = folderSizes.get(dir);
