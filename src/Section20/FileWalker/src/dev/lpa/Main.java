@@ -17,7 +17,6 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     private static class StatsVisitor extends SimpleFileVisitor<Path> {

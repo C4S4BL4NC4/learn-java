@@ -1,8 +1,12 @@
 package dev.lpa;
 
 import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.FileVisitResult;
+import java.nio.file.FileVisitor;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,14 +24,16 @@ public class Challenge {
 
     }
 
-    private static class StatsVisitor extends SimpleFileVisitor<Path> {
+    private static class StatsVisitor implements FileVisitor<Path> {
 
-        private final Map<Path, Long> folderSizes = new LinkedHashMap<>();
+        public static final String DIR_CNT = "DirCount";
+        public static final String FILE_CNT = "FileCount";
+        public static final String FILE_SIZE = "FileSize";
+
+        private final Map<Path, Map<String, Long>> folderSizes = new LinkedHashMap<>();
         private int initialCount;
         private Path initialPath = null;
         private int printLevel;
-        private int dirFolderCount;
-        private int dirFileCount;
 
         public StatsVisitor(int printLevel) {
             this.printLevel = printLevel;
@@ -37,7 +43,23 @@ public class Challenge {
         public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
             Objects.requireNonNull(file);
             Objects.requireNonNull(attrs);
-            folderSizes.merge(file.getParent(), 0L, (o, n) -> o += attrs.size());
+
+            var parentMap = folderSizes.get(file.getParent());
+            if (parentMap != null) {
+                long fileSize = attrs.size();
+                parentMap.merge(FILE_SIZE, fileSize, (o, n) -> o += n);
+                parentMap.merge(FILE_CNT, 1L, Math::addExact);
+                return FileVisitResult.CONTINUE;
+            }
+            return FileVisitResult.CONTINUE;
+        }
+
+        @Override
+        public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+            Objects.requireNonNull(file);
+            if (exc != null) {
+                System.out.println(exc.getClass().getSimpleName() + ": " + file);
+            }
             return FileVisitResult.CONTINUE;
         }
 
@@ -54,7 +76,7 @@ public class Challenge {
                 if (relativeLevel == 1) {
                     folderSizes.clear();
                 }
-                folderSizes.put(dir, 0L);
+                folderSizes.put(dir, new HashMap<>());
             }
             return FileVisitResult.CONTINUE;
         }
@@ -70,13 +92,27 @@ public class Challenge {
                 folderSizes.forEach((key, val) -> {
                     int level = key.getNameCount() - initialCount - 1;
                     if (level < printLevel) {
-                        System.out.printf("%s[%s] - %,d bytes\n", "\t".repeat(level), key.getFileName(), val);
+                        long size = val.getOrDefault(FILE_SIZE, 0L);
+                        System.out.printf("%s[%s] - %,d bytes, %d files, %d folders.%n ",
+                                "\t".repeat(level),
+                                key.getFileName(),
+                                size,
+                                val.getOrDefault(FILE_CNT, 0L),
+                                val.getOrDefault(DIR_CNT, 0L));
                     }
 
                 });
             } else {
-                long folderSize = folderSizes.get(dir);
-                folderSizes.merge(dir.getParent(), 0L, (o, n) -> o += folderSize);
+                var parentMap = folderSizes.get(dir.getParent());
+                var childMap = folderSizes.get(dir);
+
+                long folderCount = childMap.getOrDefault(DIR_CNT, 0L);
+                long fileSize = childMap.getOrDefault(FILE_SIZE, 0L);
+                long fileCount = childMap.getOrDefault(FILE_CNT, 0L);
+
+                parentMap.merge(DIR_CNT, folderCount + 1, (o, n) -> o += n);
+                parentMap.merge(FILE_SIZE, fileSize, Math::addExact);
+                parentMap.merge(FILE_CNT, fileCount, Math::addExact);
             }
             return FileVisitResult.CONTINUE;
         }
