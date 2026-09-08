@@ -1,0 +1,9 @@
+dirName:        public
+dateCreated:    2026-09-08T11:29:57.555052382Z
+--------------------
+dirName:        public/assests
+dateCreated:    2026-09-08T11:29:57.555052382Z
+--------------------
+dirName:        public/assests/icons
+dateCreated:    2026-09-08T11:29:57.555052382Z
+--------------------
