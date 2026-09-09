@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/LambdaChallenges/LambdaChallenges.iml" filepath="$PROJECT_DIR$/LambdaChallenges/LambdaChallenges.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lambdas/Lambdas.iml" filepath="$PROJECT_DIR$/Lambdas/Lambdas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MetRefChal/MetRefChal.iml" filepath="$PROJECT_DIR$/MetRefChal/MetRefChal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MethodRefrences/MethodRefrences.iml" filepath="$PROJECT_DIR$/MethodRefrences/MethodRefrences.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Section14.iml" filepath="$PROJECT_DIR$/.idea/Section14.iml" />
+    </modules>
+  </component>
+</project>

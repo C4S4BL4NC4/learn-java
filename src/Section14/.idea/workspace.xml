@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="318e63e2-15c3-4caa-b57f-241032cca53e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/LambdaChallenges/LambdaChallenges.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lambdas/Lambdas.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MetRefChal/MetRefChal.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MethodRefrences/MethodRefrences.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "C4S4BL4NC4"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/C4S4BL4NC4/learn-java.git",
+    "accountId": "258741b2-edca-4126-b604-4c33385c95f7"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3J5uma4GQTO7HbdiSyJCED3t9Zd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/newton/IdeaProjects/learn-java/src/Section14",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="318e63e2-15c3-4caa-b57f-241032cca53e" name="Changes" comment="" />
+      <created>1788963409736</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1788963409736</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
