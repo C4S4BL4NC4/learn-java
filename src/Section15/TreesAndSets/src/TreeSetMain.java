@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.TreeSet;
 
 record Contact(String name) {
 
@@ -24,18 +27,12 @@ public class TreeSetMain {
         tree.add(5);
         tree.add(1);
         tree.add(3);
-        System.out.println(tree);   // [1, 3, 5] — always sorted, automatically
+        System.out.println("tree = " + tree);   // [1, 3, 5] — always sorted, automatically
 
-        System.out.println("------------------");
-
-        Contact daffy = new Contact("Daffy");
-        Contact daisy = new Contact("Daisy");
-        Contact snoopy = new Contact("Snoopy");
-        Contact archie = new Contact("Archie");
-
-        for (var c : List.of(daffy, daisy, snoopy, archie)) {
-            System.out.println(c);
-        }
+        System.out.println("tree.contains(5) = " + tree.contains(5));
+        System.out.println("Size(): " + tree.size());
+        tree.clear();
+        System.out.println("tree = " + tree);
 
     }
 }
