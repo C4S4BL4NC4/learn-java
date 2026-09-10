@@ -1,6 +1,7 @@
 package dev.lpa;
 
 import java.util.*;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Main {
@@ -76,10 +77,16 @@ public class Main {
                         + " - "
                         + e.getValue()[e.getValue().length - 1])
                 .forEach(System.out::println);
-        
+
         Random random = new Random();
         Stream.generate(() -> random.nextInt(2))
                 .limit(20)
                 .forEach(s -> System.out.print(s + " "));
+
+        IntStream.iterate(0, i -> i + 1)
+                .limit(20)
+                .forEach(System.out::println);
+
+        System.out.println("-------------------------------------");
     }
 }
