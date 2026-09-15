@@ -4,18 +4,23 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Main.main");
-        var stopWatch = new StopWatch(TimeUnit.SECONDS);
-        Thread green = new Thread(stopWatch::countDown, ThreadColor.ANSI_GREEN.name());
-        green.start();
-        Thread purple = new Thread(() -> stopWatch.countDown(7), ThreadColor.ANSI_PURPLE.name());
+
+        var purpleWatch = new StopWatch(TimeUnit.SECONDS);
+        var greenWatch = new StopWatch(TimeUnit.SECONDS);
+        var redWatch = new StopWatch(TimeUnit.SECONDS);
+
+        Thread purple = new Thread(() -> purpleWatch.countDown(7), ThreadColor.ANSI_PURPLE.name());
+        Thread green = new Thread(greenWatch::countDown, ThreadColor.ANSI_GREEN.name());
+        Thread red = new Thread(redWatch::countDown, ThreadColor.ANSI_RED.name());
+
         purple.start();
-        Thread red = new Thread(stopWatch::countDown, ThreadColor.ANSI_RED.name());
+        green.start();
         red.start();
     }
 }
 
 class StopWatch {
+    private int i;
     private TimeUnit timeUnit;
 
     public StopWatch(TimeUnit timeUnit) {
@@ -27,6 +32,7 @@ class StopWatch {
     }
 
     public void countDown(int unitCount) {
+
         String threadName = Thread.currentThread().getName();
 
         ThreadColor threadColor = ThreadColor.ANSI_RESET;
@@ -38,7 +44,7 @@ class StopWatch {
         }
 
         String color = threadColor.color();
-        for (int i = unitCount; i > 0; i--) {
+        for (i = unitCount; i > 0; i--) {
             try {
                 timeUnit.sleep(1);
             } catch (InterruptedException e) {
