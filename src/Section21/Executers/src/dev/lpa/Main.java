@@ -6,6 +6,20 @@ import java.util.concurrent.ThreadFactory;
 public class Main {
 
     public static void main(String[] args) {
+        System.out.println("Main.main");
+        int count = 6;
+        var execService = Executors.newFixedThreadPool(
+                count, new ColorThreadFactory()
+        );
+
+        for (int i = 0; i < count; i++) {
+            execService.execute(Main::countDown);
+        }
+        
+        execService.shutdown();
+    }
+
+    public static void singlethreadmain(String[] args) {
 
         var redExecutor = Executors.newSingleThreadExecutor(
                 new ColorThreadFactory(ThreadColor.ANSI_RED)
@@ -45,7 +59,6 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-
         green.start();
         try {
             green.join();
@@ -53,14 +66,12 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-
         blue.start();
         try {
             blue.join();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
 
         System.out.println("All threads finished!");
     }
@@ -81,7 +92,12 @@ public class Main {
     }
 
     static class ColorThreadFactory implements ThreadFactory {
-        private final String threadName;
+        private String threadName;
+        private int colorValue = 1;
+
+        public ColorThreadFactory() {
+
+        }
 
         public ColorThreadFactory(ThreadColor threadColor) {
             this.threadName = threadColor.name();
@@ -89,7 +105,16 @@ public class Main {
 
         @Override
         public Thread newThread(Runnable r) {
-            return new Thread(r, threadName);
+            var name = threadName;
+            if (name == null) {
+                name = ThreadColor.values()[colorValue].name();
+            }
+
+            if (++colorValue > (ThreadColor.values().length - 1)) {
+                colorValue = 1;
+            }
+
+            return new Thread(r, name);
         }
     }
 }
