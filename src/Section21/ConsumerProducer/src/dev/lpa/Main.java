@@ -1,37 +1,60 @@
 package dev.lpa;
 
 import java.util.Random;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 class MessageRepository {
+    private final Lock lock = new ReentrantLock();
     private String message;
     private boolean hasMessage = false;
 
-    public synchronized String readMessage() {
-        while (!hasMessage) {
+    public String readMessage() {
+        if (lock.tryLock()) {
             try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                while (!hasMessage) {
+
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                hasMessage = false;
+            } finally {
+                System.out.println("**Read blocked");
+                lock.unlock();
             }
+        } else {
+            hasMessage = false;
         }
-        hasMessage = false;
-        notifyAll();
+
         return message;
     }
 
-    public synchronized void writeMessage(String message) {
-        while (hasMessage) {
+    public void writeMessage(String message) {
+        if (lock.tryLock()) {
             try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                while (hasMessage) {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                hasMessage = true;
+            } finally {
+                lock.unlock();
             }
+
+        } else {
+            System.out.println("**Write blocked");
+            hasMessage = true;
         }
-        hasMessage = true;
-        notifyAll();
         this.message = message;
     }
 }
+
 
 class MessageWriter implements Runnable {
 
