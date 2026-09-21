@@ -1,12 +1,45 @@
 package dev.lpa;
 
+import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Main.main");
+
+        var multiExecuter = Executors.newCachedThreadPool();
+        try {
+            multiExecuter.execute(
+                    () -> Main.sum(1, 10, 1, "red")
+            );
+
+            multiExecuter.execute(
+                    () -> Main.sum(10, 100, 10, "green")
+            );
+
+            multiExecuter.execute(
+                    () -> Main.sum(2, 20, 2, "blue")
+            );
+
+            multiExecuter.execute(
+                    () -> Main.sum(1, 10, 1, "yellow")
+            );
+
+            multiExecuter.execute(
+                    () -> Main.sum(10, 100, 10, "cyan")
+            );
+
+            multiExecuter.execute(
+                    () -> Main.sum(2, 20, 2, "purple")
+            );
+        } finally {
+            multiExecuter.shutdown();
+        }
+    }
+
+    public static void fixedmain(String[] args) {
+
         int count = 6;
         var execService = Executors.newFixedThreadPool(
                 count, new ColorThreadFactory()
@@ -89,6 +122,21 @@ public class Main {
         for (int i = 20; i >= 0; i--) {
             System.out.println(color + " " + threadName.replace("ANSI_", "") + " " + i);
         }
+    }
+
+    public static void sum(int start, int end, int hop, String colorString) {
+        var threadColor = ThreadColor.ANSI_RESET;
+        try {
+            threadColor = ThreadColor.valueOf("ANSI_" + colorString.toUpperCase());
+        } catch (IllegalArgumentException e) {
+           // Ignore
+        }
+        var color = threadColor.color();
+        int sum = 0;
+        for (int i = 0; i <= end ; i+=hop) {
+            sum+=i;
+        }
+        System.out.println(color + Thread.currentThread().getName() + ", " + colorString + " " + sum);
     }
 
     static class ColorThreadFactory implements ThreadFactory {
